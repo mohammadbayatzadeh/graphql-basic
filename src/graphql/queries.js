@@ -21,3 +21,16 @@ export const GET_BLOG_INFO = gql`
     }
   }
 `;
+
+export const GET_AUTHORS_INFO = gql`
+  query {
+    authors {
+      id
+      name
+      pic {
+        url
+      }
+      slug
+    }
+  }
+`;
