@@ -34,3 +34,51 @@ export const GET_AUTHORS_INFO = gql`
     }
   }
 `;
+
+export const GET_AUTHOR_INFO = gql`
+  query GetAuthorInfo($slug: String!) {
+    author(where: { slug: $slug }) {
+      filed
+      name
+      pic {
+        url
+      }
+      posts {
+        id
+        slug
+        title
+        coverPhoto {
+          url
+        }
+      }
+      about {
+        html
+      }
+    }
+  }
+`;
+
+export const GET_POST_INFO = gql`
+  query getPostInfo($slug: String!) {
+    post(where: { slug: $slug }) {
+      slug
+      title
+      content {
+        html
+      }
+      coverPhoto {
+        url
+      }
+      author {
+        ... on Author {
+          name
+          slug
+          pic {
+            url
+          }
+          filed
+        }
+      }
+    }
+  }
+`;

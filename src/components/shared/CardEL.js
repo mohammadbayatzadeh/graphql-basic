@@ -7,6 +7,7 @@ import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { Button, Divider } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const CardEL = ({ title, slug, coverPhoto, author }) => {
   return (
@@ -16,14 +17,16 @@ export const CardEL = ({ title, slug, coverPhoto, author }) => {
         borderRadius: 4,
       }}
     >
-      <CardHeader
-        avatar={<Avatar src={author.pic.url} sx={{ marginLeft: 2 }} />}
-        title={
-          <Typography component="p" variant="p" color="secondery">
-            {author.name}
-          </Typography>
-        }
-      />
+      {author && (
+        <CardHeader
+          avatar={<Avatar src={author.pic.url} sx={{ marginLeft: 2 }} />}
+          title={
+            <Typography component="p" variant="p" color="secondery">
+              {author.name}
+            </Typography>
+          }
+        />
+      )}
       <CardMedia
         component="img"
         height="194"
@@ -42,18 +45,18 @@ export const CardEL = ({ title, slug, coverPhoto, author }) => {
       </CardContent>
       <Divider variant="middle" />
       <CardActions>
-        {/* <Link
+        <Link
           to={`/blogs/${slug}`}
           style={{ textDecoration: "none", width: "100%" }}
-        > */}
-        <Button
-          variant="outlined"
-          size="small"
-          sx={{ width: "100%", borderRadius: 3 }}
         >
-          مطالعه مقاله
-        </Button>
-        {/* </Link> */}
+          <Button
+            variant="outlined"
+            size="small"
+            sx={{ width: "100%", borderRadius: 3 }}
+          >
+            مطالعه مقاله
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
