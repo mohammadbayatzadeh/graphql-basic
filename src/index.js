@@ -12,7 +12,6 @@ const client = new ApolloClient({
   uri: process.env.REACT_APP_URL,
   cache: new InMemoryCache(),
 });
-console.log(process.env.REACT_APP_URL);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

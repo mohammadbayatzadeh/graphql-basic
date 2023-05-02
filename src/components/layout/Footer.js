@@ -12,7 +12,7 @@ export const Footer = () => {
       mt={10}
       textAlign="center"
     >
-      آموزش GraphQL | سایت بوتواستارت
+     سایت آموزش GraphQL 
     </Typography>
   );
 };
